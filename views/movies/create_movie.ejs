@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col align-self-center">
+                <h1 class="display-2 text-center">Tạo phim mới</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md 12" >
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Tên phim</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="Nhập tên phim">
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                <div class="form-group">
+                        <label for="exampleFormControlSelect1">Thể loại phim</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>Hành động</option>
+                          <option>Tâm lý</option>
+                          <option>Kinh dị</option>
+                          <option>Viễn tưởng</option>
+                          <option>Hoạt hình</option>
+                        </select>
+                      </div>
+                <div class="form-group">
+                        <label for="exampleInputEmail1">Ngày phát hành</label>
+                        <input type="text" class="form-control" id="datepicker" aria-describedby="emailHelp"
+                            placeholder="Chọn ngày phát hành">
+                        
+                    </div>
+                    <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Mô tả</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          </div>
+                <button type="submit" class="btn btn-primary btn-lg">Tạo</button>
+            </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="javascripts/create.js"></script>
+<script>
+        $( function() {
+            
+          $( "#datepicker" ).datepicker({
+            dateFormat: "dd/mm/yy"
+          });
+        } );
+        </script>
+</html>
