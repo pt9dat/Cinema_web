@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="Movie">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    
+</head>
+
+<body>
+    <div class="container-fluid" ng-controller="movieController">
+        <div class="row">
+            <div class="col align-self-center">
+                <h1 class="display-2 text-center" style="color: #32BDA6;">Danh sách phim</h1>
+            </div>
+        </div>
+        <div class="row" >
+                <div class="col-md-3" ng-repeat="item in listMovies" style="margin-top: 20px;">
+                        <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="/images/movie.png" alt="Card image cap">
+                                <div class="card-body">
+                                  <h4 class="card-title" >{{item.name}}</h4>
+                                  <h6 class="card-subtitle mb-2 text-muted">Thể loại: {{item.genre}}</h6>
+                                  <!-- <h6 class="card-subtitle mb-2 text-muted">Thể loại: {{item.genre}}</h6> -->
+                                  <a href="#" class="btn btn-primary float-md-right" style="background-color: #32BDA6; border-color: #32BDA6;">Chi tiết</a>
+                                </div>
+                              </div>
+        </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+<script src="/javascripts/api_services.js"></script>
+<script src="/javascripts/movie/show_all_movie.js"></script>
+
+<script>
+        $( function() {
+            
+          $( "#datepicker" ).datepicker({
+            dateFormat: "dd/mm/yy"
+          });
+          $("#datepicker").datepicker('setDate', 'today');
+        } );
+        </script>
+</html>

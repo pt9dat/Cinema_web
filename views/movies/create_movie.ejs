@@ -1,54 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Movie">
 
 <head>
     <title>
         <%= title %>
     </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
     <link rel='stylesheet' href='/stylesheets/style.css' />
     
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" ng-controller="movieController">
         <div class="row">
             <div class="col align-self-center">
-                <h1 class="display-2 text-center">Tạo phim mới</h1>
+                <h1 class="display-2 text-center" style="color: #32BDA6; margin-bottom: 20px;">Tạo phim mới</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-md 12" >
+                <div class="col-md-4 text-center">
+                        <img src="/images/movie.png" class="img-fluid" alt="Responsive image">
+                        <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 10px; background-color: #32BDA6; border-color: #32BDA6; color: white">Thêm hình</button>
+                </div>
+            <div class="col-md-8" >
             <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Tên phim</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    <input class="form-control" id="exampleInputEmail1" ng-model="movieName" aria-describedby="emailHelp"
                         placeholder="Nhập tên phim">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                 </div>
                 <div class="form-group">
                         <label for="exampleFormControlSelect1">Thể loại phim</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                          <option>Hành động</option>
+                        <select class="form-control" id="exampleFormControlSelect1" ng-init="movieGenre = dataGenre[0]" ng-options="option for option in dataGenre" ng-model="movieGenre">
+                          <!-- <option selected="selected">Hành động</option>
                           <option>Tâm lý</option>
                           <option>Kinh dị</option>
                           <option>Viễn tưởng</option>
-                          <option>Hoạt hình</option>
+                          <option>Hoạt hình</option> -->
                         </select>
                       </div>
                 <div class="form-group">
                         <label for="exampleInputEmail1">Ngày phát hành</label>
-                        <input type="text" class="form-control" id="datepicker" aria-describedby="emailHelp"
-                            placeholder="Chọn ngày phát hành">
+                        <input type="text" class="form-control" id="datepicker" ng-model="movieReleaseDate" aria-describedby="emailHelp" >
                         
                     </div>
                     <div class="form-group">
                             <label for="exampleFormControlTextarea1">Mô tả</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" ng-model="movieContent" rows="5" placeholder="Nhập thông tin khác về bộ phim như tóm tắt nội dung, diễn viên,..."></textarea>
                           </div>
-                <button type="submit" class="btn btn-primary btn-lg">Tạo</button>
+                <button type="submit" ng-click="show()" class="btn btn-primary btn-lg float-md-right" style="background-color: #32BDA6; border-color: #32BDA6; color: white">Tạo phim</button>
             </form>
             </div>
         </div>
@@ -57,13 +60,17 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="javascripts/create.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+<script src="/javascripts/api_services.js"></script>
+<script src="/javascripts/movie/create_movie.js"></script>
+
 <script>
         $( function() {
             
           $( "#datepicker" ).datepicker({
             dateFormat: "dd/mm/yy"
           });
+          $("#datepicker").datepicker('setDate', 'today');
         } );
         </script>
 </html>

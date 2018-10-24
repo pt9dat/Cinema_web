@@ -5,7 +5,7 @@ const responseStatus = require('../configs/responseStatus.js')
 const createMovie = async (data) => {
     var movie = new Movie({
         name: data.name,
-        gerne: data.gerne,
+        genre: data.genre,
         releaseDate: data.releaseDate,
         content: data.content
     })
@@ -15,6 +15,14 @@ const createMovie = async (data) => {
         })
 }
 
+const getMovies = async () => {
+ const movies = await Movie.find()
+ return responseStatus.Code200({
+     movies: movies
+ })
+}
+
 module.exports = {
-    createMovie: createMovie
+    createMovie: createMovie,
+    getMovies: getMovies
 }
