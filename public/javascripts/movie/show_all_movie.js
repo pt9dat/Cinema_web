@@ -7,4 +7,11 @@ myApp.controller('movieController', ['$scope', 'api_services', function ($scope,
     }).catch(function (error){
         console.log(error)
     })
+
+    $scope.token = false
+    if (document.cookie) {
+        $scope.token = true
+    } else {
+        $scope.token = false
+    }
 }])

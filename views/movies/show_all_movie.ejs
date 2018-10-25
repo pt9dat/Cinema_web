@@ -16,19 +16,37 @@
 <body>
     <div class="container-fluid" ng-controller="movieController">
         <div class="row">
-            <div class="col align-self-center">
+            <div class="col-md-12">
+                    <nav class="navbar fixed-top navbar-light " style="background-color: #32BDA6;" >
+                            <a class="navbar-brand" href="#" style="color: #fff;">
+                              <img src="/images/movie.png" width="30" height="30" class="d-inline-block align-top" alt="" >
+                              Cinema
+                            </a><form class="form-inline" ng-model='token'>
+                                    <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="color: #fff;">
+                                    <button class="btn btn-light" type="submit">Search</button> -->
+                                    <button class="btn btn-raised btn-success" type="submit" style="margin-right: 10px;" onclick="location='/signin';" ng-show="token">Tạo phim</button>
+                                    <button class="btn btn-raised btn-warning" type="submit" style="margin-right: 10px;" onclick="location='/signin';" ng-show="token">Đăng xuất</button>
+                                    <button class="btn btn-raised btn-info" type="submit" style="margin-right: 10px;" onclick="location='/signin';" ng-hide="token">Đăng nhập</button>
+                                    <button class="btn btn-raised btn-primary" type="submit" ng-hide="token">Đăng ký</button>
+                                  </form>
+
+                          </nav>
+                      </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col align-self-center" style="margin-top: 50px;">
                 <h1 class="display-2 text-center" style="color: #32BDA6;">Danh sách phim</h1>
             </div>
-        </div>
+        </div> -->
         <div class="row" >
-                <div class="col-md-3" ng-repeat="item in listMovies" style="margin-top: 20px;">
-                        <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="/images/movie.png" alt="Card image cap">
+                <div class="col-md-3" ng-repeat="item in listMovies" style="margin-top: 60px;">
+                        <div class="card" style="width: 18rem; border-radius: 5px;">
+                                <img class="card-img-top" src="/images/cinema2.jpg" alt="Card image cap">
                                 <div class="card-body">
                                   <h4 class="card-title" >{{item.name}}</h4>
                                   <h6 class="card-subtitle mb-2 text-muted">Thể loại: {{item.genre}}</h6>
                                   <!-- <h6 class="card-subtitle mb-2 text-muted">Thể loại: {{item.genre}}</h6> -->
-                                  <a href="#" class="btn btn-primary float-md-right" style="background-color: #32BDA6; border-color: #32BDA6;">Chi tiết</a>
+                                  <a href="#" class="btn btn-raised btn btn-primary float-md-right" style="background-color: #32BDA6; border-color: #32BDA6; color: white">Chi tiết</a>
                                 </div>
                               </div>
         </div>
@@ -36,6 +54,7 @@
     </div>
 
 </body>
+<script src="/javascripts/common.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>

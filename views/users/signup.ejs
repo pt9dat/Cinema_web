@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="Movie">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    
+</head>
+
+<body>
+    <div class="container-fluid" ng-controller="userController">
+            <div class="row">
+                    <div class="col align-self-center">
+                        <h1 class="display-2 text-center" style="color: #32BDA6; margin-bottom: 50px;">Đăng ký</h1>
+                    </div>
+                </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6" >
+                <form >
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style="color: #32BDA6;">Username</label>
+                        <input class="form-control" id="username" ng-model="userName" aria-describedby="emailHelp"
+                            >
+                    </div>
+                    <div class="form-group">
+                            <label for="exampleInputEmail1" style="color: #32BDA6;">Email</label>
+                        <input class="form-control" id="email" ng-model="userEmail" aria-describedby="emailHelp"
+                            >
+                          </div>
+                    <div class="form-group">
+                            <label for="exampleInputEmail1" style="color: #32BDA6;">Password</label>
+                            <input type="password" class="form-control" id="password" ng-model="userPassword" aria-describedby="emailHelp" >
+                            
+                        </div>
+                        <div class="form-group">
+                                <label for="exampleInputEmail1" style="color: #32BDA6;">Confirm Password</label>
+                            <input type="password" class="form-control" id="confpass" ng-model="userConfirmPass" aria-describedby="emailHelp" >
+                              </div>
+                    <button type="submit" ng-click="signup()" class="btn btn-raised btn btn-primary btn-lg mx-auto d-block" style="background-color: #32BDA6; border-color: #32BDA6; color: white;">Đăng ký</button>
+                </form>
+            </div>
+		</div>
+    </div>
+
+</body>
+<script src="/javascripts/common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+<script src="/javascripts/api_services.js"></script>
+<script src="/javascripts/user/signup.js"></script>
+</html>
