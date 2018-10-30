@@ -38,6 +38,30 @@ router.post('/signin', async (req, res) => {
     }
   })
 
+  router.put('/editUsername', async (req, res) => {
+    try {
+        const token = req.headers['x-access-token']
+        const response = await userController.editUsername(req.body, token)
+        res.send(response)
+    } catch (error) {
+      res.send({
+        error: error
+      })
+    }
+  })
+
+  router.put('/changePassword', async (req, res) => {
+    try {
+        const token = req.headers['x-access-token']
+        const response = await userController.changePassword(req.body, token)
+        res.send(response)
+    } catch (error) {
+      res.send({
+        error: error
+      })
+    }
+  })
+
 
 
 

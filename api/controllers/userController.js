@@ -52,9 +52,41 @@ const checkUserLoggedIn = async (token) => {
     } 
 }
 
+const editUsername = async (data, token) => {
+    const decoded = jwt.verify(token, config.secret)
+    const user = await User.findOne({email: decoded.email})
+    if(user){
+        
+        user.userName = data.userName
+        await user.save()
+        return responseStatus.Code200({
+            message: 'Đổi tên thành công',
+            user: user
+    })
+    } 
+}
+
+const changePassword = async (data, token) => {
+    const decoded = jwt.verify(token, config.secret)
+    const user = await User.findOne({email: decoded.email})
+    if(user){
+        var passwordIsValid = bcrypt.compareSync(data.oldPass, user.password);
+        if (!passwordIsValid) return responseStatus.Code400({message: 'Sai mật khẩu hiện tại'})
+        var hashedPassword = bcrypt.hashSync(data.password, 9)
+        user.password = hashedPassword
+        await user.save()
+        return responseStatus.Code200({
+            message: 'Đổi mật khẩu thành công',
+            user: user
+    })
+    } 
+}
+
 
 module.exports = {
     signup: signup,
     signin: signin,
-    checkUserLoggedIn: checkUserLoggedIn  
+    checkUserLoggedIn: checkUserLoggedIn,
+    editUsername: editUsername,
+    changePassword: changePassword
 }

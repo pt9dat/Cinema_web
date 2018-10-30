@@ -24,6 +24,12 @@ angular.module('Movie',[]).factory('api_services', ['$http', function ($http) {
          },
          deleteMovie : function(data) {
              return $http.delete('/api/movie/' + data)
-          }
+          },
+        editUsername: function(data) {
+              return $http.put('/api/user/editUsername',data)
+           },
+           changePassword: function(data) {
+                 return $http.put('/api/user/changePassword',data)
+              }
     }
 }])

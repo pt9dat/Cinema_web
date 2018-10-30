@@ -41,7 +41,8 @@ myApp.controller('movieController', ['$scope', 'api_services', function ($scope,
     $scope.signout = function() {
        // setCookie('token', null)
         deleteCookie('token')
-        // return window.location.href = '/'
+        deleteCookie('token')
+        return window.location.href = '/'
     }
 
     $scope.goEdit = function() {

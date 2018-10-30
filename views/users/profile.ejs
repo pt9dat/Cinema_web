@@ -67,12 +67,81 @@
                           Thông tin người dùng
                         </div>
                         <div class="card-body">
-                          <!-- <h5 class="card-title">Username: </h5> -->
+                          
                           <p class="card-text" ng-model='userName'>Username: {{userName}}</p>
                           <p class="card-text" ng-model='userEmail'>Email: {{userEmail}}</p>
-                          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                          
+                          
                         </div>
+                        <div class="card-footer text-center">
+                                            <button type="button" class="btn btn-raised btn-warning" data-toggle="modal" data-target="#editModal" >Sửa</button>
+                                 
+                                        <button type="button" class="btn btn-raised btn-info" data-toggle="modal" data-target="#changeModal">Đổi mật khẩu</button>
+                             
+                            </div>
+                        
                       </div>
+                      <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa thông tin</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <form>
+                                  <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Username</label>
+                                    <input type="text" class="form-control" id="newName" ng-model='newUsername'>
+                                  </div>
+                                </form>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                <button type="button" class="btn btn-primary" ng-click='editName()' data-dismiss="modal">OK</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="modal fade" id="changeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Đổi mật khẩu</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <form>
+                                    <div class="form-group">
+                                      <label for="message-text" class="col-form-label">Mật khẩu hiện tại</label>
+                                      <input type="password" class="form-control" id="oldPass" ng-model='oldPass'>
+                                      <label class="error" id="oldPass-error"></label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Mật khẩu mới</label>
+                                        <input type="password" class="form-control" id="newPass" ng-model='newPass'>
+                                        <label class="error" id="newPass-error"></label>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="message-text" class="col-form-label">Xác nhận mật khẩu mới</label>
+                                          <input type="password" class="form-control" id="cnewPass" ng-model='cnewPass'>
+                                          <label class="error" id="cnewPass-error"></label>
+                                        </div>
+                                  </form>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                  <button type="button" class="btn btn-primary" ng-click='changePassword()'>OK</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
         </div>
         <div class="row">
                 <div class="col-md-12">
