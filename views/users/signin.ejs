@@ -10,33 +10,73 @@
         <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    
+    <link rel="shortcut icon" type="image/png" href="/images/movie.png"/>
 </head>
 
 <body>
     <div class="container-fluid" ng-controller="userController">
             <div class="row">
+                    <div class="col-md-12">
+                            <nav class="navbar fixed-top navbar-light " style="background-color: #32BDA6;" >
+                                    <a class="navbar-brand" href="/" style="color: #fff;">
+                                      <img src="/images/movie.png" width="60" height="60" class="d-inline-block align-top" alt="" >
+                                      
+                                    </a>
+                                    <form class="form-inline" ng-model='token'>
+                                        <button class="btn btn-raised btn-info" type="submit" style="margin-right: 10px;" onclick="location='/signin';" ng-hide="token">Đăng nhập</button>
+                                        <button class="btn btn-raised btn-primary" type="submit" ng-hide="token" onclick="location='/signup';">Đăng ký</button>
+                                      
+                                    </form>
+        
+                                  </nav>
+                              </div>
+                </div>
+            <div class="row">
                     <div class="col align-self-center">
-                        <h1 class="display-2 text-center" style="color: #32BDA6; margin-bottom: 50px;">Đăng nhập</h1>
+                        <h1 class="display-2 text-center" style="color: #32BDA6; margin-bottom: 50px; margin-top: 60px">Đăng nhập</h1>
                     </div>
                 </div>
         <div class="row justify-content-center">
             <div class="col-md-6" >
-                <form >
+                <form>
                     <div class="form-group">
-                            <label for="exampleInputEmail1" style="color: #32BDA6;">Email</label>
-                        <input class="form-control" id="exampleInputEmail1" ng-model="userEmail" aria-describedby="emailHelp"
-                            >
+                            <label for="cemail" style="color: #32BDA6;" >Email</label>
+                        <input class="form-control" id="cemail" type="text" data-msg="Email không đúng." ng-model="userEmail" aria-describedby="emailHelp"
+                        >
+                        <label class="error" id="email-error"></label>
                           </div>
                     <div class="form-group">
-                            <label for="exampleInputEmail1" style="color: #32BDA6;">Password</label>
-                            <input type="password" class="form-control" id="use" ng-model="userPassword" aria-describedby="emailHelp" >
-                            
+                            <label for="cname" style="color: #32BDA6;">Password</label>
+                            <input type="password" class="form-control" id="cname" ng-model="userPassword" data-msg="Bạn chưa nhập password." aria-describedby="emailHelp">
+                            <label class="error" id="password-error"></label>
                         </div>
-                    <button type="submit" ng-click="signin()" class="btn btn-raised btn btn-primary btn-lg mx-auto d-block" style="background-color: #32BDA6; border-color: #32BDA6; color: white;">Đăng nhập</button>
+                        <table style="width: 100%; table-layout: fixed; margin-top: 50px;">
+                                <tr>
+                                        <td>
+                                                <button type="submit" class="btn btn-raised btn btn-danger btn-lg mx-auto d-block" onclick="location='/signup';" style=" color: white; width: 90%;">Đăng ký</button>
+                                          </td>
+                                    <td>
+                                            <button type="submit" ng-click='signin()' class="btn btn-raised btn btn-primary btn-lg mx-auto d-block" style="background-color: #32BDA6; border-color: #32BDA6; color: white; width: 90%;">Đăng nhập</button>
+                                    </td>
+                                    
+                                </tr>
+                            </table>
+                    
+                    
                 </form>
             </div>
-		</div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                        <nav class="navbar fixed-bottom navbar-light " style="background-color: #32BDA6;" >
+                                <p style="color: white; margin-bottom: 0px;">
+                                        © Chinh Dat
+                                </p>
+                            
+    
+                              </nav>
+                          </div>
+            </div>
     </div>
 
 </body>
@@ -44,10 +84,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script> -->
 <script src="/javascripts/api_services.js"></script>
 <script src="/javascripts/user/signin.js"></script>
 
-<script>
-  
-        </script>
+<!-- <script>
+    $( "#signinForm" ).validate({
+        })
+</script> -->
 </html>

@@ -7,6 +7,7 @@ const createMovie = async (data) => {
         name: data.name,
         genre: data.genre,
         releaseDate: data.releaseDate,
+        createdDate: data.createdDate,
         content: data.content
     })
      await movie.save()
@@ -22,7 +23,15 @@ const getMovies = async () => {
  })
 }
 
+const getOneMovies = async (data) => {
+    const movies = await Movie.findById(data)
+    return responseStatus.Code200({
+        movies: movies
+    })
+   }
+
 module.exports = {
     createMovie: createMovie,
-    getMovies: getMovies
+    getMovies: getMovies,
+    getOneMovies: getOneMovies
 }

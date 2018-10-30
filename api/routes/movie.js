@@ -15,6 +15,17 @@ router.get('/', async (req, res) => {
   }
 })
 
+router.get('/:id', async (req, res) => {
+  try {
+      const response = await movieController.getOneMovies(req.params.id)
+      res.send(response)
+  } catch (error) {
+    res.send({
+      error: error
+    })
+  }
+})
+
 router.post('/', async (req, res) => {
     try {
         const response = await movieController.createMovie(req.body)

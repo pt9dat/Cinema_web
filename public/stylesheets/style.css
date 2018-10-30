@@ -6,3 +6,27 @@ body {
 a {
   color: #00B7FF;
 }
+
+.userName {
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+body #cemail-error.error {
+  color: #f7412d;
+}
+body #cname-error.error {
+  color: #f7412d;
+}
+
+.card:hover{
+  -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+  box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.75);
+}
+
+.error {
+  display: none;
+  color: #f7412d;
+  margin-top: 5px;
+}
