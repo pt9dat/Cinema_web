@@ -43,21 +43,22 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1" style="color: #32BDA6;">Username</label>
                         <input class="form-control" id="cname" ng-model="userName" data-msg="Bạn chưa nhập user name." aria-describedby="emailHelp"
-                            >
+                            ><label class="error" id="username-error"></label>
                     </div>
                     <div class="form-group">
                             <label for="exampleInputEmail1" style="color: #32BDA6;">Email</label>
-                        <input class="form-control" id="cemail" type="email" data-msg="Email không đúng." ng-model="userEmail" aria-describedby="emailHelp"
-                            >
+                        <input class="form-control" id="cemail" type="text" data-msg="Email không đúng." ng-model="userEmail" aria-describedby="emailHelp"
+                            ><label class="error" id="email-error"></label>
                           </div>
                     <div class="form-group">
                             <label for="exampleInputEmail1" style="color: #32BDA6;">Password</label>
                             <input type="password" class="form-control" id="cpass" ng-model="userPassword" data-msg="Bạn chưa nhập password." aria-describedby="emailHelp" >
-                            
+                            <label class="error" id="password-error"></label>
                         </div>
                         <div class="form-group">
                                 <label for="exampleInputEmail1" style="color: #32BDA6;">Confirm Password</label>
                             <input type="password" class="form-control" id="ccpass" ng-model="userConfirmPass" data-msg="Bạn chưa xác nhận password." aria-describedby="emailHelp" >
+                            <label class="error" id="cpassword-error"></label>
                               </div>
                               <table style="width: 100%; table-layout: fixed; margin-top: 50px;">
                                   <tr>
