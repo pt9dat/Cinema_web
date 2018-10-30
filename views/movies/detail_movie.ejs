@@ -66,14 +66,35 @@
                         <!-- <img src="/images/cinema2.jpg" class="img-fluid" alt="Responsive image"> -->
                         <div class="card mb-3">
                                 <img class="card-img-top" src="/images/cinema2.jpg" alt="Card image cap">
-                                <div class="card-body">
+                                <div class="card-body" ng-model='isCreator'>
                                   <h5 class="card-title" ng-model='movieTitle'>{{movieTitle}}</h5>
                                   <p class="card-text" ng-model='movieGenre'>Thể loại: {{movieGenre}}</p>
                                   <p class="card-text" ng-model='movieReleaseDate'>Ngày phát hành: {{movieReleaseDate | date:'dd/MM/yyyy'}}</p>
                                   <!-- <p class="card-text" ng-model='movieGenre'>Thể loại: {{movieGenre}}</p> -->
                                   <p class="card-text" ng-model='movieContent'>Mô tả:</p>
                                   <p class="card-text"><small class="text-muted">{{movieContent}}</small></p>
+                                  <button class="btn btn-raised btn-success" type="button" style="margin-right: 10px;" ng-click='goEdit()' ng-show="isCreator">Sửa phim</button>
+                            <button class="btn btn-raised btn-warning" type="button" style="margin-right: 10px;" ng-show="isCreator" data-toggle="modal" data-target="#deleteModal">Xóa phim</button>
                                 </div>
+                                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLabel">Xác nhận!!!</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                              Bạn có chắc chắn muốn xóa phim này?
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                              <button type="button" class="btn btn-primary" ng-click='deleteMovie()'>Đồng ý</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
                               </div>
                             
         </div>

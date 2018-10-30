@@ -24,8 +24,8 @@
                               
                             </a>
                             <form class="form-inline" ng-model='token'>
-                                    <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="color: #fff;">
-                                    <button class="btn btn-light" type="submit">Search</button> -->
+                                    <input class="form-control mr-sm-2" id='search-bar' type="search" placeholder="Search" aria-label="Search" style="color: #fff;">
+                                    <!-- <button class="btn btn-light" type="submit">Search</button> -->
                                     <button type="button" class="btn btn-success" onclick="location='./profile';" ng-show="token" style="color: white;" ng-model='userName'>{{userName}}</button>
                                     <!-- <p class="h5 userName" style="color: #fff;" ng-show="token" style="margin-top: 30px;" ng-model='userName'>{{userName}}</p> -->
                                     <button class="btn btn-raised btn-success" type="submit" style="margin-right: 10px;" onclick="location='./movie/create';" ng-show="token">Tạo phim</button>
@@ -64,19 +64,20 @@
             </div>
         </div> -->
         <div class="row" >
-                <div class="col-md-3" ng-repeat="item in listMovies" style="margin-top: 60px;">
+                <div class="col-md-3" ng-repeat="item in filteredMovies" style="margin-top: 60px; cursor: pointer;" ng-click="redirectMovieDetail(item)">
                     
                         <div class="card" style="width: 18rem; border-radius: 5px;">
-                            <a ng-href='/movie/detail/{{item._id}}'>
+                            <!-- <a ng-href='/movie/detail/{{item._id}}'> -->
                                 <img class="card-img-top" src="/images/cinema2.jpg" alt="Card image cap">
-                               </a>
+                               <!-- </a> -->
                                 <div class="card-body">
                                   <h4 class="card-title" >{{item.name}}</h4>
                                   <h6 class="card-subtitle mb-2 text-muted">Thể loại: {{item.genre}}</h6>
                                   <!-- <h6 class="card-subtitle mb-2 text-muted">Thể loại: {{item.genre}}</h6> -->
-                                  <a ng-href='/movie/detail/{{item._id}}' id="detail_btn" class="btn btn-raised btn btn-primary float-md-right" style="background-color: #32BDA6; border-color: #32BDA6; color: white">Chi tiết</a>
+                                  <a ng-href='/movie/{{item.alias}}' id="detail_btn" class="btn btn-raised btn btn-primary float-md-right" style="background-color: #32BDA6; border-color: #32BDA6; color: white">Chi tiết</a>
                                 </div>
                               </div>
+                              
                             
         </div>
         </div>

@@ -9,8 +9,9 @@ var movieSchema = new Schema({
     content: String,
     posterURL: String,
     createdDate: Number,
-    creatorId: String
-    // user: { type: Schema.Types.ObjectId, ref: 'User' }
+    creatorId: String,
+    alias: String,
+    user: { type: Schema.Types.ObjectId, ref: 'User' }
   })
   var Movie = mongoose.model('Movie', movieSchema)
   module.exports = Movie

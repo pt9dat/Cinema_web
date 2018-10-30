@@ -15,9 +15,9 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/:alias', async (req, res) => {
   try {
-      const response = await movieController.getOneMovies(req.params.id)
+      const response = await movieController.getOneMovies(req.params.alias)
       res.send(response)
   } catch (error) {
     res.send({
@@ -29,6 +29,27 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const response = await movieController.createMovie(req.body)
+        res.send(response)
+    } catch (error) {
+      res.send({
+        error: error
+      })
+    }
+  })
+
+  router.put('/', async (req, res) => {
+    try {
+        const response = await movieController.editMovie(req.body)
+        res.send(response)
+    } catch (error) {
+      res.send({
+        error: error
+      })
+    }
+  })
+  router.delete('/:alias', async (req, res) => {
+    try {
+        const response = await movieController.deleteMovie(req.params.alias)
         res.send(response)
     } catch (error) {
       res.send({

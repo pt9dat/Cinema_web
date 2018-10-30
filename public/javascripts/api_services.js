@@ -18,6 +18,12 @@ angular.module('Movie',[]).factory('api_services', ['$http', function ($http) {
         },
         checkUserLoggedIn : function() {
             return $http.get('/api/user/checkUserLoggedIn')
-        }
+        },
+        editMovie : function(data) {
+            return $http.put('/api/movie/', data)
+         },
+         deleteMovie : function(data) {
+             return $http.delete('/api/movie/' + data)
+          }
     }
 }])

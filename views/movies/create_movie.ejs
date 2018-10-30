@@ -58,7 +58,7 @@
                 </div>
         <div class="row">
             <div class="col align-self-center">
-                <h1 class="display-2 text-center" style="color: #32BDA6; margin-bottom: 20px; margin-top: 60px;">Tạo phim mới</h1>
+                <h1 class="display-2 text-center" id="title" style="color: #32BDA6; margin-bottom: 20px; margin-top: 60px;" ng-model='title'>{{title}}</h1>
             </div>
         </div>
         <div class="row">
@@ -73,12 +73,12 @@
             <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Tên phim</label>
-                    <input class="form-control" id="exampleInputEmail1" ng-model="movieName" aria-describedby="emailHelp"
+                    <input class="form-control" id="movieName" ng-model="movieName" aria-describedby="emailHelp"
                         placeholder="Nhập tên phim">
                 </div>
                 <div class="form-group">
                         <label for="exampleFormControlSelect1">Thể loại phim</label>
-                        <select class="form-control" id="exampleFormControlSelect1" ng-init="movieGenre = dataGenre[0]" ng-options="option for option in dataGenre" ng-model="movieGenre">
+                        <select class="form-control" id="exampleFormControlSelect1" ng-init="movieGenre" ng-options="option for option in dataGenre" ng-model="movieGenre">
                           <option selected="selected">Hành động</option>
                           <option>Tâm lý</option>
                           <option>Kinh dị</option>
@@ -93,9 +93,9 @@
                     </div>
                     <div class="form-group">
                             <label for="exampleFormControlTextarea1">Mô tả</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" ng-model="movieContent" rows="5" placeholder="Nhập thông tin khác về bộ phim như tóm tắt nội dung, diễn viên,..."></textarea>
+                            <textarea class="form-control" id="movieContent" ng-model="movieContent" rows="5" placeholder="Nhập thông tin khác về bộ phim như tóm tắt nội dung, diễn viên,...">{{movieContent}}</textarea>
                           </div>
-                <button type="submit" ng-click="show()" class="btn btn-primary btn-lg float-md-right" style="background-color: #32BDA6; border-color: #32BDA6; color: white">Tạo phim</button>
+                <button type="submit" id='create' ng-click="show()" class="btn btn-primary btn-lg float-md-right" style="background-color: #32BDA6; border-color: #32BDA6; color: white" ng-model='create_btn'>{{create_btn}}</button>
             </form>
             </div>
         </div>

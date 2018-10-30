@@ -10,6 +10,10 @@ router.get('/movie/create', function(req, res, next) {
   res.render('movies/create_movie', { title: 'Tạo phim' });
 });
 
+router.get('/movie/edit/:alias', function(req, res, next) {
+  res.render('movies/create_movie', { title: 'Sửa phim' });
+});
+
 router.get('/', function(req, res, next) {
   res.render('movies/show_all_movie', { title: 'Danh sách phim' });
 });
@@ -22,7 +26,7 @@ router.get('/signup', function(req, res, next) {
   res.render('users/signup', { title: 'Đăng ký' });
 });
 
-router.get('/movie/detail/:id', function(req, res, next) {
+router.get('/movie/:alias', function(req, res, next) {
   res.render('movies/detail_movie', { title: 'Chi tiết bộ phim' });
 });
 
